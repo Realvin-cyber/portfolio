@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-
-  form.addEventListener("submit", (e) => {
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    alert("Thanks for reaching out! I'll get back to you soon.");
-    form.reset();
+
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });
